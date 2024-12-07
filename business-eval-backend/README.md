@@ -34,10 +34,8 @@ npm install
 Create a `.env` file in the project root and populate it with the following values:
 
 ```env
-NODE_MAIL_PASSWORD=your-mail-password
 MONGO_URL=your-mongodb-connection-string
 JWT_SECRET=your-jwt-secret
-NODE_MAIL_EMAIL=your-email-address
 AWS_ACCESS_KEY_ID=your-access-key-id
 AWS_SECRET_ACCESS_KEY=your-secret-access-key
 AWS_REGION=your-region
