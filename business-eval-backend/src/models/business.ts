@@ -102,6 +102,7 @@ const businessSchema: Schema = new Schema({
     expected_salary: MetricSchema,//expected salary
     loan_down_payment: MetricSchema,
     additional_startup_capital: MetricSchema,
+    additional_debt: MetricSchema,
 
     dscr: MetricSchema,
     projected_cashflow: MetricSchema,
