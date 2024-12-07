@@ -10,7 +10,7 @@
     "lint:fix": "eslint --fix .",
     "preview": "vite preview",
     "format": "prettier --write ./src",
-    "prepare": "husky install"
+    "prepare": "npm install"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",
