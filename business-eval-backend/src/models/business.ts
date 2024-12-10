@@ -52,7 +52,8 @@ export interface IBusiness extends Document {
       metricType: string,
       notes: string[],
       isIndependent: boolean
-    }[]
+    }[],
+  
 }
 
 const customFieldsSchema = new Schema({
@@ -78,6 +79,7 @@ const businessSchema: Schema = new Schema({
     business_location: { type: String },
     business_url: { type: String },
     business_attachments: { type: [String], default: [] },
+    updated_at: { type: Date, default: Date.now },
 
     //Independent Metrics
     asking_price: MetricSchema,//Asking Price
@@ -103,7 +105,6 @@ const businessSchema: Schema = new Schema({
     loan_down_payment: MetricSchema,
     additional_startup_capital: MetricSchema,
     additional_debt: MetricSchema,
-
     dscr: MetricSchema,
     projected_cashflow: MetricSchema,
     gross_multiple: MetricSchema,
@@ -113,6 +114,11 @@ const businessSchema: Schema = new Schema({
     total_debt_payments: MetricSchema,
     projected_net_profit_margin: MetricSchema,
     custom_fields: [customFieldsSchema]
+});
+
+businessSchema.pre('save', function(next) {
+  this.updated_at = new Date();
+  next();
 });
 
 export default mongoose.model<IBusiness>('Business', businessSchema);
